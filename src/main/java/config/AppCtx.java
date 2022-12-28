@@ -1,5 +1,6 @@
 package config;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -9,6 +10,7 @@ import spring.MemberInfoPrinter;
 import spring.MemberListPrinter;
 import spring.MemberPrinter;
 import spring.MemberRegisterService;
+import spring.MemberSummaryPrinter;
 import spring.VersionPrinter;
 
 //스프링 설정 클래스를 의미
@@ -40,8 +42,14 @@ public class AppCtx {
 	}
 
 	@Bean
-	public MemberPrinter memberPrinter() {
+	@Qualifier("printer")						// 해당 빈의 한정값으로 printer를 지정
+	public MemberPrinter memberPrinter1() {
 		return new MemberPrinter();
+	}
+	@Bean
+	@Qualifier("summaryPrinter")
+	public MemberSummaryPrinter memberPrinter2() {
+		return new MemberSummaryPrinter();
 	}
 
 	@Bean
