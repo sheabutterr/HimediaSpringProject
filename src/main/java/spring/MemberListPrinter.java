@@ -39,6 +39,7 @@ public class MemberListPrinter {
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		// 람다식
 
+		
 		for (Member member : members) {
 			printer.print(member);
 		}
